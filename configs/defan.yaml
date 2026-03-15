@@ -1,0 +1,58 @@
+model:
+  name: meta-llama/Llama-3.1-8B-Instruct
+  load_in_8bit: true
+  device_map: auto
+  torch_dtype: float16
+
+data:
+  train_ratio: 0.7
+  seed: 42
+
+activation:
+  layers_to_probe: [8, 10, 12, 13, 14, 15, 16, 17, 18, 20, 22]
+  pca_components: 50
+  batch_size: 16
+
+clustering:
+  K: null
+  K_range: [2, 20]
+  n_init: 20
+  random_state: 42
+  min_cluster_size: 10
+  dbscan_min_samples: 10
+
+router:
+  top_k: 2
+  dropout: 0.3
+  lr: 0.001
+  epochs: 100
+  weight_decay: 0.0001
+  load_balance_coef: 0.01
+  batch_size: 32
+  val_ratio: 0.15
+
+steering:
+  alpha: 0.5
+  max_new_tokens: 100
+  temperature: 0.8
+  generation_top_p: 0.9
+
+evaluation:
+  judge_model: gemini-2.5-flash
+  judge_batch_size: 10
+  mc_batch_size: 16
+  refusal_phrases:
+    - "I don't know"
+    - "I cannot"
+    - "I'm not sure"
+    - "I am not sure"
+    - "I cannot determine"
+    - "It's not possible"
+    - "I have no information"
+
+paths:
+  data_dir: data/defan/
+  activations_dir: activations/
+  checkpoints_dir: checkpoints/
+  outputs_dir: outputs/
+  figures_dir: outputs/figures/

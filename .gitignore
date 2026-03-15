@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.cache/
+
+# Virtual environments
+mosv-env/
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Model + activation artifacts (large binary files, generated at runtime)
+*.pt
+*.bin
+*.safetensors
+*.pkl
+*.npy
+*.npz
+activations/
+checkpoints/
+outputs/
+
+# Data (generated at runtime by scripts/prepare_data.py)
+data/defan/
+data/defan/
+
+# Logs
+logs/
+*.out
+*.err
+
+# Environment variables
+.env
+*.env
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Experiment tracking
+wandb/
+runs/
