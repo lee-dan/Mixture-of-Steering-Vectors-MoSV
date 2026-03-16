@@ -1,8 +1,14 @@
 # Mixture-of-Steering-Vectors (MoSV)
 
-**Stanford CS224N Final Project** · Daniel Lee, Feolu Kolawole, Vedant Srinivas
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c)
+![Model](https://img.shields.io/badge/model-Llama--3.1--8B-blueviolet)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-research-yellow)
 
-MoSV replaces single-vector inference-time steering with a bank of K specialized vectors, routing among them per prompt via a learned sparse MLP. No retraining of the base model required.
+Inference-time hallucination mitigation via learned sparse routing over a bank of contrastive steering vectors, applied directly to the LLM residual stream without any weight updates.
+
+MoSV replaces the single global vector of CAA with K specialized steering vectors discovered via unsupervised clustering of contrastive activation differences. A lightweight sparse MLP router selects which vectors to apply per prompt at inference time.
 
 ---
 
@@ -88,7 +94,6 @@ scripts/
 
 jobs/                          SLURM scripts (FarmShare)
 outputs/                       results, figures, per-K summaries
-manuscript/                    paper and poster
 ```
 
 ---
